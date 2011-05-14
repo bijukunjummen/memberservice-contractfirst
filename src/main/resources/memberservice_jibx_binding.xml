@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<binding>
+	<mapping name="MemberDetailsRequest"
+		class="org.bk.memberservice.message.MemberDetailsRequest">
+		<namespace prefix="ms" uri="http://bk.org/memberservice/" default="all"/>
+		<value name="id" field="id" />
+	</mapping>
+
+	<mapping name="MemberDetailsResponse"
+		class="org.bk.memberservice.message.MemberDetailsResponse">
+		<namespace prefix="ms" uri="http://bk.org/memberservice/" default="all"/>
+		<structure name="memberdetail" field="memberDetail"
+			class="org.bk.memberservice.types.MemberDetail">
+			<value name="name" field="name" />
+			<value name="city" field="city" />
+			<value name="phone" field="phone" />
+			<value name="state" field="state" />
+		</structure>
+	</mapping>
+</binding>
