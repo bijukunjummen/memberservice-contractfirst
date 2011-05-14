@@ -3,11 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:sws="http://www.springframework.org/schema/web-services"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
 
+<!-- Not required anymore..with the Spring-ws based annotations 
 	<bean id="payloadMapping"
 		class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">
 		<property name="endpointMap">
@@ -18,17 +21,19 @@
 		</property>
 	</bean>
 
-	<bean id="memberManager" class="org.bk.memberservice.service.MemberManagerImpl"></bean>
 	<bean id="getMemberDetailsEndpoint" class="org.bk.memberservice.endpoint.GetMemberDetailsEndpoint">
 		<property name="marshaller" ref="marshaller" />
 		<property name="unmarshaller" ref="unmarshaller" />
 		<property name="memberManager" ref="memberManager" />
 	</bean>
 
-	<bean id="MemberDetailsRequest"
-		class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
-		<property name="wsdl" value="classpath:/memberservice.wsdl" />
-	</bean>
+ -->
+	<context:component-scan base-package="org.bk.memberservice"/>
+  	<sws:annotation-driven marshaller="marshaller" unmarshaller="unmarshaller"/>
+  	
+	
+
+	<sws:static-wsdl id="MemberDetailsRequest" location="classpath:/memberservice.wsdl"/>
 
 
 	<bean id="marshaller" class="org.springframework.oxm.jibx.JibxMarshaller">

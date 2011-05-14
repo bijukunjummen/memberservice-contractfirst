@@ -1,7 +1,9 @@
 package org.bk.memberservice.service;
 
 import org.bk.memberservice.types.MemberDetail;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MemberManagerImpl implements MemberManager {
 
 	public MemberDetail getMemberDetails(String id) {

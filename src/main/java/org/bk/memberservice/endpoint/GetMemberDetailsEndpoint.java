@@ -4,15 +4,20 @@ import org.bk.memberservice.message.MemberDetailsRequest;
 import org.bk.memberservice.message.MemberDetailsResponse;
 import org.bk.memberservice.service.MemberManager;
 import org.bk.memberservice.types.MemberDetail;
-import org.springframework.ws.server.endpoint.AbstractMarshallingPayloadEndpoint;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-public class GetMemberDetailsEndpoint extends
-		AbstractMarshallingPayloadEndpoint {
+@Endpoint
+public class GetMemberDetailsEndpoint {
 
-	private MemberManager memberManager;
+	@Autowired private MemberManager memberManager;
 
-	protected Object invokeInternal(Object requestObject) throws Exception {
-		MemberDetailsRequest request = (MemberDetailsRequest) requestObject;
+	@PayloadRoot(namespace = "http://bk.org/memberservice/", localPart = "MemberDetailsRequest")
+	@ResponsePayload
+	public MemberDetailsResponse getMemberDetails(@RequestPayload MemberDetailsRequest request) throws Exception {
 		MemberDetail memberDetail = memberManager.getMemberDetails(request
 				.getId());
 		MemberDetailsResponse response = new MemberDetailsResponse(memberDetail);
