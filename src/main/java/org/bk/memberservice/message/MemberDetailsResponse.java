@@ -1,7 +1,10 @@
 package org.bk.memberservice.message;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.bk.memberservice.types.MemberDetail;
 
+@XmlRootElement(name="MemberDetailsResponse", namespace="http://bk.org/memberservice/")
 public class MemberDetailsResponse {
 
 	public MemberDetailsResponse() {

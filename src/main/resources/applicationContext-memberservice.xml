@@ -28,21 +28,15 @@
 	</bean>
 
  -->
+ 	<import resource="applicationContext-oxm.xml"/>
 	<context:component-scan base-package="org.bk.memberservice"/>
-  	<sws:annotation-driven marshaller="marshaller" unmarshaller="unmarshaller"/>
+
+  	<sws:annotation-driven marshaller="jaxbMarshaller" unmarshaller="jaxbUnMarshaller"/>
   	
 	
 
 	<sws:static-wsdl id="MemberDetailsRequest" location="classpath:/memberservice.wsdl"/>
 
 
-	<bean id="marshaller" class="org.springframework.oxm.jibx.JibxMarshaller">
-		<property name="targetClass"
-			value="org.bk.memberservice.message.MemberDetailsResponse" />
-	</bean>
 
-	<bean id="unmarshaller" class="org.springframework.oxm.jibx.JibxMarshaller">
-		<property name="targetClass"
-			value="org.bk.memberservice.message.MemberDetailsRequest" />
-	</bean>
 </beans>
