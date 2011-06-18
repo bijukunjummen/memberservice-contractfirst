@@ -9,8 +9,7 @@
 	<mapping name="MemberDetailsResponse"
 		class="org.bk.memberservice.message.MemberDetailsResponse">
 		<namespace prefix="ms" uri="http://bk.org/memberservice/" default="all"/>
-		<structure name="memberdetail" field="memberDetail"
-			class="org.bk.memberservice.types.MemberDetail">
+		<structure name="memberdetail" field="memberDetail">
 			<value name="name" field="name" />
 			<value name="city" field="city" />
 			<value name="phone" field="phone" />

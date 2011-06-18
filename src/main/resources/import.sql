@@ -1,0 +1,2 @@
+insert into memberdetails (id, name, phone, city, state) values(1,'john doe','111-111-1111','City', 'State')
+insert into memberdetails (id, name, phone, city, state) values(2,'person2','211-111-1111','Carmel', 'IN')

@@ -18,8 +18,7 @@ public class GetMemberDetailsEndpoint {
 	@PayloadRoot(namespace = "http://bk.org/memberservice/", localPart = "MemberDetailsRequest")
 	@ResponsePayload
 	public MemberDetailsResponse getMemberDetails(@RequestPayload MemberDetailsRequest request) throws Exception {
-		MemberDetail memberDetail = memberManager.getMemberDetails(request
-				.getId());
+		MemberDetail memberDetail = memberManager.findByMemberId(request.getId());
 		MemberDetailsResponse response = new MemberDetailsResponse(memberDetail);
 		return response;
 

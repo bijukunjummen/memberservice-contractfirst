@@ -4,29 +4,8 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="memberservice"
 	targetNamespace="http://bk.org/memberservice/">
 	<wsdl:types>
-		<xsd:schema targetNamespace="http://bk.org/memberservice/" elementFormDefault="qualified">
-			<xsd:complexType name="MemberDetailType">
-				<xsd:sequence>
-					<xsd:element name="name" type="xsd:string" />
-					<xsd:element name="phone" type="xsd:string" />
-					<xsd:element name="city" type="xsd:string" />
-					<xsd:element name="state" type="xsd:string" />
-				</xsd:sequence>
-			</xsd:complexType>
-			<xsd:element name="MemberDetailsRequest">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="id" type="xsd:string" />
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="MemberDetailsResponse">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="memberdetail" type="ms:MemberDetailType" />
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import namespace="http://bk.org/memberservice/" schemaLocation="memberservice.xsd"></xsd:import>
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="MemberDetailsRequest">

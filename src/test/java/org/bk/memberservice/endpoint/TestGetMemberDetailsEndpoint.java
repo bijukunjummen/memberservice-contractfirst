@@ -18,11 +18,11 @@ public class TestGetMemberDetailsEndpoint {
 		MemberManager memberManagerMock = createMock(MemberManager.class);
 		MemberDetail memberDetail = new MemberDetail("testname","testphone","testcity","teststate");
 //		MemberDetailsResponse response = new MemberDetailsResponse(memberDetail);
-		expect(memberManagerMock.getMemberDetails(isA(String.class))).andReturn(memberDetail);
+		expect(memberManagerMock.findByMemberId((isA(Long.class)))).andReturn(memberDetail);
 		GetMemberDetailsEndpoint memberDetailsEndpoint = new GetMemberDetailsEndpoint();
 		memberDetailsEndpoint.setMemberManager(memberManagerMock);
 		replay(memberManagerMock);
-		memberDetailsEndpoint.getMemberDetails(new MemberDetailsRequest("testid"));
+		memberDetailsEndpoint.getMemberDetails(new MemberDetailsRequest(1L));
 		verify(memberManagerMock);
 
 	}

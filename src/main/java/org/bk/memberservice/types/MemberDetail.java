@@ -1,5 +1,19 @@
 package org.bk.memberservice.types;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "MemberDetail", namespace="http://bk.org/memberservice/")
+@Entity
+@Table(name="memberdetails")
 public class MemberDetail {
 	public MemberDetail() {
 
@@ -11,6 +25,11 @@ public class MemberDetail {
 		this.city = city;
 		this.state = state;
 	}
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
 
 	private String name;
 	private String phone;
@@ -48,4 +67,12 @@ public class MemberDetail {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

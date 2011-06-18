@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <ms:MemberDetailsRequest xmlns:ms="http://bk.org/memberservice/">
-	<ms:id>SAMPLE</ms:id>
+	<ms:id>1</ms:id>
 </ms:MemberDetailsRequest>
