@@ -19,4 +19,16 @@
 	<bean id="memberservice" class="org.springframework.xml.xsd.SimpleXsdSchema">
 		<property name="xsd" value="classpath:/memberservice.xsd" />
 	</bean>
+
+	<sws:interceptors>
+		<sws:payloadRoot namespaceUri="http://bk.org/memberservice/">
+			<bean id="validatingInterceptor"
+				class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+				<property name="schema" value="classpath:/memberservice.xsd" />
+				<property name="validateRequest" value="true" />
+				<property name="validateResponse" value="true" />
+			</bean>
+		</sws:payloadRoot>
+	</sws:interceptors>
+	
 </beans>

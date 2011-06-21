@@ -51,7 +51,7 @@ public class TestBindMemberDetailsResponseJAXB {
 		marshaller.marshal(response, result);
 		assertNotNull(writer.toString());
 		System.out.println(writer.toString());
-		assertTrue(writer.toString().contains("memberDetail"));
+		assertTrue(writer.toString().contains("memberdetail"));
 	}
 
 }

@@ -8,10 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "MemberDetail", namespace="http://bk.org/memberservice/")
+@XmlRootElement(name = "MemberDetail", namespace="http://bk.org/memberservice/" )
 @Entity
 @Table(name="memberdetails")
 public class MemberDetail {
@@ -29,11 +30,19 @@ public class MemberDetail {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
+    @XmlElement(name="id", namespace="http://bk.org/memberservice/")
     private Long id;
 
+	@XmlElement(name="name", namespace="http://bk.org/memberservice/")
 	private String name;
+	
+	@XmlElement(name="phone", namespace="http://bk.org/memberservice/")
 	private String phone;
+	
+	@XmlElement(name="city", namespace="http://bk.org/memberservice/")
 	private String city;
+	
+	@XmlElement(name="state", namespace="http://bk.org/memberservice/")
 	private String state;
 
 	public String getName() {

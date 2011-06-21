@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ws.test.server.MockWebServiceClient;
@@ -47,16 +49,17 @@ public class TestMemberServiceEndpointIntegration {
                         + "</mem:MemberDetailsRequest>");
         Source responsePayload = new StringSource(
                 "<ns3:MemberDetailsResponse xmlns:ns3=\"http://bk.org/memberservice/\">"
-          + "<memberDetail>" 
-          + "<id>1</id>"
-          + "<name>john doe</name>"
-          + "<phone>111-111-1111</phone>"
-          + "<city>City</city>"
-          + "<state>State</state>"
-          + "</memberDetail>"
+          + "<ns3:memberdetail>" 
+          + "<ns3:id>1</ns3:id>"
+          + "<ns3:name>john doe</ns3:name>"
+          + "<ns3:phone>111-111-1111</ns3:phone>"
+          + "<ns3:city>City</ns3:city>"
+          + "<ns3:state>State</ns3:state>"
+          + "</ns3:memberdetail>"
       + "</ns3:MemberDetailsResponse>");
 
-        mockClient.sendRequest(withPayload(requestPayload)).andExpect(payload(responsePayload));
+        Resource schema = new ClassPathResource("/memberservice.xsd");
+        mockClient.sendRequest(withPayload(requestPayload)).andExpect(payload(responsePayload)).andExpect(validPayload(schema ));
         verify(this.memberManager);
     }
 }
