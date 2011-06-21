@@ -1,5 +1,7 @@
 package org.bk.memberservice.endpoint;
 
+import javax.annotation.Resource;
+
 import org.bk.memberservice.message.MemberDetailsRequest;
 import org.bk.memberservice.message.MemberDetailsResponse;
 import org.bk.memberservice.service.MemberManager;
@@ -13,7 +15,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class GetMemberDetailsEndpoint {
 
-	@Autowired private MemberManager memberManager;
+	@Resource private MemberManager memberManager;
 
 	@PayloadRoot(namespace = "http://bk.org/memberservice/", localPart = "MemberDetailsRequest")
 	@ResponsePayload
