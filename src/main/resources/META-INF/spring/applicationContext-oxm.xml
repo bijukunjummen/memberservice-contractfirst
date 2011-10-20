@@ -9,20 +9,8 @@
     	http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd
         ">
 	
-	<oxm:jaxb2-marshaller id="jaxbMarshaller">
+	<oxm:jaxb2-marshaller id="marshaller">
 	    <oxm:class-to-be-bound name="org.bk.memberservice.message.MemberDetailsRequest"/>
-	    <oxm:class-to-be-bound name="org.bk.memberservice.message.MemberDetailsResponse"/>		
+	    <oxm:class-to-be-bound name="org.bk.memberservice.message.MemberDetailsResponse"/>			
 	</oxm:jaxb2-marshaller>
-	
-	<bean id="jibxMarshaller" class="org.springframework.oxm.jibx.JibxMarshaller">
-		<property name="targetClass"
-			value="org.bk.memberservice.message.MemberDetailsResponse" />
-	</bean>
-
-	<bean id="jibxUnMarshaller" class="org.springframework.oxm.jibx.JibxMarshaller">
-		<property name="targetClass"
-			value="org.bk.memberservice.message.MemberDetailsRequest" />
-	</bean>
-	
-	<alias name="jaxbMarshaller" alias="jaxbUnMarshaller"/>
 </beans>

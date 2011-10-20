@@ -24,4 +24,12 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
+	<xsd:element name="MemberDetailsFault">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="faultDetail" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
 </xsd:schema>

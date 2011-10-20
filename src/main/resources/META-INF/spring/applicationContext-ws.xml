@@ -12,9 +12,11 @@
 	<import resource="applicationContext-oxm.xml" />
 	<context:component-scan base-package="org.bk.memberservice.endpoint" />
 
-	<sws:annotation-driven marshaller="jaxbMarshaller" unmarshaller="jaxbUnMarshaller" />
+	<sws:annotation-driven />
 
-	<sws:static-wsdl id="MemberDetailsRequest" location="classpath:/memberservice.wsdl" />
+	<sws:dynamic-wsdl id="MemberDetailsRequest" locationUri="http://localhost:8080/memberservice/services/MemberDetailsRequest/" portTypeName="MemberDetails">
+		<sws:xsd location="classpath:/memberservice.xsd"/>
+	</sws:dynamic-wsdl>
 
 	<bean id="memberservice" class="org.springframework.xml.xsd.SimpleXsdSchema">
 		<property name="xsd" value="classpath:/memberservice.xsd" />
@@ -30,5 +32,15 @@
 			</bean>
 		</sws:payloadRoot>
 	</sws:interceptors>
-	
+	<!-- 
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver">
+        <property name="defaultFault" value="SERVER"/>
+        <property name="exceptionMappings">
+            <value>
+                org.bk.memberservice.message.MemberDetailsFault=SERVER,No Member-message from application context
+            </value>
+        </property>
+    </bean>	
+     -->
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>
 </beans>
