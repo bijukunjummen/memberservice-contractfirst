@@ -9,8 +9,8 @@
     	http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd
         ">
 	
-	<oxm:jaxb2-marshaller id="marshaller">
+	<oxm:jaxb2-marshaller id="marshaller" >
 	    <oxm:class-to-be-bound name="org.bk.memberservice.message.MemberDetailsRequest"/>
-	    <oxm:class-to-be-bound name="org.bk.memberservice.message.MemberDetailsResponse"/>			
+	    <oxm:class-to-be-bound name="org.bk.memberservice.message.MemberDetailsResponse"/>	
 	</oxm:jaxb2-marshaller>
 </beans>

@@ -10,8 +10,8 @@
 
 	<bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
 		<constructor-arg ref="messageFactory" />
-		<property name="defaultUri" value="http://localhost:8080/memberservice/services/" />
-		<property name="marshaller" ref="jaxbMarshaller"></property>
-		<property name="unmarshaller" ref="jaxbMarshaller"></property>
+		<property name="defaultUri" value="http://localhost:8081/memberservice/services/" />
+		<property name="marshaller" ref="marshaller"></property>
+		<property name="unmarshaller" ref="marshaller"></property>
 	</bean>
 </beans>

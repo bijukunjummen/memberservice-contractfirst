@@ -14,7 +14,7 @@ public class JpaMemberDetailDao extends JpaDao<Long, MemberDetail> implements Me
     @Override
     public List<MemberDetail> findByMemberName(String name) {
         EntityManager em = this.getEntityManager();
-        TypedQuery<MemberDetail> q = em.createQuery("SELECT o FROM MemberDetail where o.name=:name", MemberDetail.class);
+        TypedQuery<MemberDetail> q = em.createQuery("SELECT o FROM MemberDetail o where o.name=:name", MemberDetail.class);
         q.setParameter("name", name);
         return q.getResultList();
     }

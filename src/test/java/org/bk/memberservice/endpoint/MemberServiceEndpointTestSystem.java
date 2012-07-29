@@ -1,25 +1,18 @@
 package org.bk.memberservice.endpoint;
 
-import static org.easymock.EasyMock.*;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import static org.springframework.ws.test.server.RequestCreators.*;
-import static org.springframework.ws.test.server.ResponseMatchers.*;
-
-import javax.xml.transform.Source;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import org.bk.memberservice.message.MemberDetailsRequest;
 import org.bk.memberservice.message.MemberDetailsResponse;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ws.client.core.WebServiceTemplate;
-import org.springframework.ws.test.server.MockWebServiceClient;
-import org.springframework.xml.transform.StringSource;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

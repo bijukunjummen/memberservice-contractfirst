@@ -7,12 +7,29 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>Memberservice</name>
 	<url>http://maven.apache.org</url>
+	<repositories>
+	    <repository>
+            <id>EclipseLink Repo</id>
+            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+            <name>EclipseLink Repo</name>
+        </repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<artifactId>junit-dep</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>xmlunit</groupId>
@@ -224,6 +241,12 @@
 			<artifactId>wsdl4j</artifactId>
 			<version>${wsdl4j.version}</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+            <version>2.4.0</version>
+        </dependency>
 
 	</dependencies>
 	<build>
@@ -291,12 +314,12 @@
 		</plugins>
 	</build>
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
-		<junit.version>4.8.1</junit.version>
-		<easymock.version>2.4</easymock.version>
+		<spring.version>3.1.2.RELEASE</spring.version>
+		<junit.version>4.10</junit.version>
+		<easymock.version>3.1</easymock.version>
 		<aspectj.version>1.6.10</aspectj.version>
 		<slf4j.version>1.6.1</slf4j.version>
-		<spring-ws.version>2.0.1.RELEASE</spring-ws.version>
+		<spring-ws.version>2.1.0.RELEASE</spring-ws.version>
 		<wsdl4j.version>1.6.2</wsdl4j.version>
 	</properties>
 

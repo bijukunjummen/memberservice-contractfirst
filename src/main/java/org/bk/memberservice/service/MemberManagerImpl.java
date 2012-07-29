@@ -2,10 +2,12 @@ package org.bk.memberservice.service;
 
 import java.util.List;
 
+import javax.activation.DataHandler;
 import javax.annotation.Resource;
 
 import org.bk.memberservice.dao.MemberDetailDao;
 import org.bk.memberservice.types.MemberDetail;
+import org.bk.memberservice.types.Picture;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +48,12 @@ public class MemberManagerImpl implements MemberManager {
 
     @Override
     public MemberDetail findByMemberId(Long id) {
-        return this.memberDetailDao.findById(id);
+        MemberDetail memberDetail =  this.memberDetailDao.findById(id);
+        Picture picture = new Picture();
+        picture.setTitle("A Picture");
+        picture.setImageData(new DataHandler("A string", "text/plain"));
+        memberDetail.setPicture(picture);
+        return memberDetail;
     }
 
 }

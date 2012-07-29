@@ -25,11 +25,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(inheritLocations=true,  locations={"classpath:/META-INF/spring/applicationContext-oxm.xml"})
 public class TestBindMemberDetailsRequestUsingJAXB {
 	@Autowired
-	@Qualifier("jaxbMarshaller")
+	@Qualifier("marshaller")
 	Unmarshaller unmarshaller; 
 
 	@Autowired
-	@Qualifier("jaxbMarshaller")
+	@Qualifier("marshaller")
 	Marshaller marshaller; 
 
 	@Test
@@ -45,7 +45,9 @@ public class TestBindMemberDetailsRequestUsingJAXB {
 		StringWriter writer = new StringWriter();
 		Result result = new StreamResult(writer);		
 		marshaller.marshal(memberDetailsRequest, result);
-		assertTrue(writer.toString().contains("MemberDetailsRequest"));
+		String marshalledXml = writer.toString();
+		assertTrue(marshalledXml.contains("MemberDetailsRequest"));
+		System.out.println(marshalledXml);
 	}
 	
 	

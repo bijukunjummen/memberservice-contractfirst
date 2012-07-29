@@ -10,7 +10,6 @@ public class MemberDetailsFault extends RuntimeException{
 		this.faultDetail = faultDetail;
 	}
 	
-	
 	private static final long serialVersionUID = 1L;
 	private String faultDetail;
 

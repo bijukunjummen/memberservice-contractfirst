@@ -12,11 +12,12 @@
 	<import resource="applicationContext-oxm.xml" />
 	<context:component-scan base-package="org.bk.memberservice.endpoint" />
 
-	<sws:annotation-driven />
+	<sws:annotation-driven  />
 
-	<sws:dynamic-wsdl id="MemberDetailsRequest" locationUri="http://localhost:8080/memberservice/services/MemberDetailsRequest/" portTypeName="MemberDetails">
+	<sws:dynamic-wsdl id="MemberDetailsRequest" locationUri="http://localhost:8080/memberservice/services/MemberDetailsRequest/" portTypeName="MemberDetails" >
 		<sws:xsd location="classpath:/memberservice.xsd"/>
 	</sws:dynamic-wsdl>
+	
 
 	<bean id="memberservice" class="org.springframework.xml.xsd.SimpleXsdSchema">
 		<property name="xsd" value="classpath:/memberservice.xsd" />

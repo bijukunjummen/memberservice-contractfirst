@@ -3,6 +3,8 @@ package org.bk.memberservice.endpoint;
 import org.bk.memberservice.message.MemberDetailsFault;
 import org.bk.memberservice.message.MemberDetailsRequest;
 import org.bk.memberservice.message.MemberDetailsResponse;
+import org.bk.memberservice.message.MemberSearchRequest;
+import org.bk.memberservice.message.MemberSearchResponse;
 import org.bk.memberservice.service.MemberManager;
 import org.bk.memberservice.types.MemberDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,10 @@ public class GetMemberDetailsEndpoint {
 		MemberDetailsResponse response = new MemberDetailsResponse(memberDetail);
 		return response;
 
+	}
+	
+	public MemberSearchResponse searchMembers(MemberSearchRequest memberSearchRequest){
+		return new MemberSearchResponse(this.memberManager.findByMemberName(memberSearchRequest.getName()));
 	}
 
 	public void setMemberManager(MemberManager memberManager) {

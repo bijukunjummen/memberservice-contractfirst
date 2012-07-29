@@ -25,19 +25,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(inheritLocations = true, locations = { "classpath:/META-INF/spring/applicationContext-oxm.xml" })
 public class TestBindMemberDetailsResponseJAXB {
 	@Autowired
-	@Qualifier("jaxbMarshaller")
+	@Qualifier("marshaller")
 	Marshaller marshaller;
 
 	@Autowired
-	@Qualifier("jaxbMarshaller")
+	@Qualifier("marshaller")
 	Unmarshaller unmarshaller;
 
 	@Test
 	public void testUnMarshallingToMemberDetailsRequest() throws Exception {
-		InputStream stream = this.getClass().getClassLoader()
-				.getResourceAsStream("sampleMemberResponse.xml");
-		Object memberDetailsRequestObj = unmarshaller
-				.unmarshal(new StreamSource(stream));
+		InputStream stream = this.getClass().getClassLoader().getResourceAsStream("sampleMemberResponse.xml");
+		Object memberDetailsRequestObj = unmarshaller.unmarshal(new StreamSource(stream));
 		assertNotNull(memberDetailsRequestObj);
 	}
 

@@ -1,11 +1,13 @@
 package org.bk.memberservice.types;
 
+import javax.activation.DataHandler;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -44,6 +46,7 @@ public class MemberDetail {
 	
 	@XmlElement(name="state", namespace="http://bk.org/memberservice/")
 	private String state;
+	
 
 	public String getName() {
 		return name;
@@ -84,4 +87,18 @@ public class MemberDetail {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    @XmlElement(name="picture", namespace="http://bk.org/memberservice/")
+    @Transient
+    private Picture picture;
+
+	public Picture getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Picture picture) {
+		this.picture = picture;
+	}
+    
+    
 }
